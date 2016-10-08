@@ -4,6 +4,7 @@
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
   </head>
   <body>
+
    <a-scene fog = "type: exponential; color : #fff">
 
    <a-assets>    
@@ -13,8 +14,7 @@
 
 					<a-sky color = "#333">						
 					</a-sky>
-          <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em >
-          <!-- onclick="nextScene2()"--> 
+          <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="tweetTweet()">
                      <a-animation repeat="indefinite" attribute="rotation" from="270 0 0" to="270 359 0" dur="20000">
                           
                     </a-animation>
@@ -33,5 +33,15 @@
                 material="repeat: 10 10; src: #marble; width: 100"
                 rotation="-90 0 0" position="0 -2.5 -6"></a-entity>
     </a-scene>
+
+
+
+  <script type="text/javascript">
+
+  function tweetTweet() { //tweet iver here
+    //basic javascript
+    // just try to tweet the website address for now in a newly created handle
+  }
+  </script>
   </body>
 </html>
