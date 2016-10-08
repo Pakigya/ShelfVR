@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Soda Can VR example</title>
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+  </head>
+  <body>
+   <a-scene fog = "type: exponential; color : #fff">
+
+   <a-assets>    
+   </a-assets>
+
+					<a-sky color = "#333">						
+					</a-sky>
+					
+					<a-camera position="0 2 -20" wasd-controls= "acceleration: 200 ; enabled: true">                 
+					        <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
+					            scale = "0.01 0.01 0.01"
+					            position="0 0 -1"
+					            geometry="primitive: ring"
+					            material="color: white; shader: flat">
+					        </a-entity>
+				    </a-camera>
+    </a-scene>
+  </body>
+</html>
