@@ -104,7 +104,7 @@
 
 					<a-sky color = "#333">						
 					</a-sky>
-          <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="checkLoginState();">
+          <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="initfn();">
                      <a-animation repeat="indefinite" attribute="rotation" from="270 0 0" to="270 359 0" dur="20000">
                     </a-animation>
           </a-image>
@@ -1921,7 +1921,9 @@
     </a-scene>
 
 
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 
+</fb:login-button>
   <script type="text/javascript">
 
   function tweetTweet() { //tweet over here
@@ -1961,7 +1963,7 @@
     });
   }
 
-  window.fbAsyncInit = function() {
+  function initfn() {
   FB.init({
     appId      : '525501174309832',
     cookie     : true,  // enable cookies to allow the server to access 
