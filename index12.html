@@ -1,0 +1,1973 @@
+<html>
+  <head>
+    <title>mHacks VR</title>
+    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
+    <script src="nunjucks.js"></script>
+    <script src="js/nunjucks-v2.3.0.min.js"></script>
+    <script src="js/nunjucks.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
+    <script src="myfont.typeface.js"></script>
+    <script src="../build.js"></script>
+    <style type="text/css">
+      .para{
+        text-align: center;font-size: 20px;margin-top: 6px;
+      }
+    </style>
+
+
+  </head>
+  <body>
+
+   <a-scene fog = "type: exponential; color : #fff">
+
+   <a-assets>
+      <!-- Texture -->
+       <img id="marble" src="img/marble.jpg">
+       <img id="zigzag" src="img/wooden.jpg">
+       <img id="tweet" src="img/tweet.png">
+       <img id="woodrack" src="img/woodrack.jpg">
+       <img id="row" src="img/row2.jpg">
+
+      <!-- Books -->
+      <!-- Harry Potter -->
+       <img id="hp1" src="img/hp/hp1.jpg">
+       <img id="hp2" src="img/hp/hp2.jpg">
+       <img id="hp21" src="img/hp/hp21.jpg">
+       <img id="hp3" src="img/hp/hp3.jpg">
+       <img id="hp31" src="img/hp/hp31.jpg">
+       <img id="hp32" src="img/hp/hp32.jpg">
+       <img id="hp4" src="img/hp/hp4.jpg">
+       <img id="hp5" src="img/hp/hp5.jpg">
+       <img id="hp6" src="img/hp/hp6.jpg">
+       <img id="hp61" src="img/hp/hp61.jpg">
+       <img id="hp7" src="img/hp/hp7.jpg">
+       <img id="hp71" src="img/hp/hp71.jpg">
+
+       <!-- Lord of the rings -->
+       <img id="lotr0" src="img/lotr/lotr0.jpg">
+       <img id="lotr01" src="img/lotr/lotr01.jpg">
+       <img id="lotr02" src="img/lotr/lotr02.jpg">
+       <img id="lotr11" src="img/lotr/lotr11.jpg">
+       <img id="lotr12" src="img/lotr/lotr12.jpg">
+       <img id="lotr13" src="img/lotr/lotr13.jpg">
+       <img id="lotr2" src="img/lotr/lotr2.jpg">
+       <img id="lotr21" src="img/lotr/lotr21.jpg">
+       <img id="lotr3" src="img/lotr/lotr3.jpg">
+       <img id="lotr31" src="img/lotr/lotr31.jpg">
+
+
+
+       <!-- Categories for Aisle -->
+
+       <div id="cat1">
+        <p class="para">Fantasy</p>
+       </div>
+       <div id="cat2">
+        <p class="para">Comic</p>
+       </div>
+       <div id="cat3">
+        <p class="para">Sci-fi</p>
+       </div>
+       <div id="cat4">
+        <p class="para">YA</p>
+       </div>
+       <div id="cat5">
+        <p class="para">Textbook</p>
+       </div>
+
+     <script id="rack" type="text/html-template">
+                <a-box position="0 0 -10" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"></a-box>
+      </script>
+
+       <script id="racks" type="text/nunjucks-template">
+          {% for x in range(20) %}
+            {% for z in range(10) %}
+
+              <a-entity class="rack" template="src: #rack"
+                        position="{{ x }} 0 {{ z }}"></a-entity>
+              <!--
+                         <a-box position="{{ x }} 0 {{ z }}" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"></a-box>
+                                  -->
+            {% endfor %}
+          {% endfor %}
+      </script>
+
+
+
+           <script id= "display" type="text/nunjucks-template">
+          {% for x in range(5) %}
+            {% for z in range(10) %}
+                <a-box position="{{ x }} 0 {{ z }}" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"></a-box>
+            {% endfor %}
+          {% endfor %}
+      </script>
+
+   </a-assets>
+
+					<a-sky color = "#333">						
+					</a-sky>
+          <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="tweetTweet()">
+                     <a-animation repeat="indefinite" attribute="rotation" from="270 0 0" to="270 359 0" dur="20000">
+                          
+                    </a-animation>
+          </a-image>
+					
+          <!--<a-box position="0 15 -30" width="10" height="15" depth=".5" color="#999" 
+                                  material="repeat: 10 10; src: #woodrack"></a-box>
+        <!--<a-box position="0 14 -30" width="45" height="22" depth=".5" color="#fff">
+        </a-box>
+-->
+  <!--<a-video src="#nyc" width="45" height="22" depth=".5" position="0 14 -29" autoplay webkit-playsinline></a-video>-->
+
+
+
+<!-- Aisle Names -->
+          <!-- First Row Aisle -->
+          <a-entity position="-20 5 5" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 5" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 5" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 5" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 5" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
+
+          <!-- Second Row Aisle -->
+           <a-entity position="-20 5 -10" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 -10" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 -10" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 -10" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 -10" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
+
+          <!-- Third Row Aisle -->
+           <a-entity position="-20 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
+          
+          <!-- REVERSE -->
+          <a-entity position="-20 5 5" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 5" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 5" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 5" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 5" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
+
+          <!-- Second Row Aisle -->
+           <a-entity position="-20 5 -10" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 -10" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 -10" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 -10" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 -10" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
+
+          <!-- Third Row Aisle -->
+           <a-entity position="-20 5 -25" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 -25" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 -25" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 -25" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 -25" scale="2 0.5 2" rotation="0 180 0" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
+          
+
+<!-- Aisle Racks -->
+          <!-- First Row -->
+          <a-box position="5 0 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+
+                                  <!-- Rack's Wooden Row -->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 -->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+
+                                  </a-box>
+          <a-box position="15 0 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                  
+                                  <!-- Rack's Wooden Row -->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 -->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box>  
+                                    
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+
+                                  </a-box>
+          <a-box position="25 0 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                  
+                                  <!-- Rack's Wooden Row -->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 -->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box>  
+
+
+                                  </a-box>
+          <a-box position="-5 0 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row -->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 -->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box>
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box>  
+
+                                  </a-box>
+          <a-box position="-15 0 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row -->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 -->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+
+                                  </a-box>
+          <a-box position="-25 0 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row -->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 -->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+
+                                  </a-box>
+
+        <!-- Second row -->
+          <a-box position="5 0 -10" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+
+          <a-box position="15 0 -10" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="25 0 -10" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="-5 0 -10" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="-15 0 -10" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="-25 0 -10" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+
+
+          <!-- Third Row -->
+          <a-box position="5 0 -25" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="15 0 -25" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="25 0 -25" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="-5 0 -25" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="-15 0 -25" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+          <a-box position="-25 0 -25" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0">
+                                    
+                                  
+                                  <!-- Rack's Wooden Row Left-->
+                                    <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 -0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Left -->
+                                    <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp1"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp31"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp4"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Left-->
+                                    <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp5"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp6"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp61"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp7"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #hp71"
+                                  rotation = "0 0 0"></a-box> 
+
+
+
+                                  <!-- Rack's Wooden Row Right-->
+                                    <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>            
+                                    <a-box position="0 0.1 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1.9 0.5" width="10" height="0.2" depth="0.5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 1 Right -->
+                                    <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr0"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr01"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr02"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr11"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr12"
+                                  rotation = "0 0 0"></a-box>
+
+                                  <!-- Book Row Number 2 Right-->
+                                    <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr13"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr2"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr21"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr3"
+                                  rotation = "0 0 0"></a-box>
+                                    <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
+                                  material="src: #lotr31"
+                                  rotation = "0 0 0"></a-box> 
+                                  </a-box>
+
+
+          <a-entity template="src: #display" position="1 0 -13"></a-entity>
+
+					
+
+
+          <a-camera position="0 2 -20" wasd-controls= "acceleration: 200 ; enabled: true">    
+
+                  <a-box position="-5 10 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0"></a-box>
+
+					        <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
+					            scale = "0.01 0.01 0.01"
+					            position="0 0 -1"
+					            geometry="primitive: ring"
+					            material="color: white; shader: flat">
+
+                      <a-animation begin="click" easing="ease-in" attribute="scale"
+                   fill="backwards" from="0.01 0.01 0.01" to="0.03 0.03 0.03"></a-animation>
+
+                     <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale"
+                   fill="forwards" from="0.03 0.03 0.03" to="0.01 0.01 0.01"></a-animation>
+					        </a-entity>
+
+                  <a-entity
+                                  geometry="primitive: box"
+                                  position="-5 10 5" width="10" height="5" depth=".5" 
+                                  material="repeat: 10 10; src: #woodrack"
+                                  rotation = "0 90 0"></a-entity>
+
+          <!--<a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="tweetTweet()">
+                     <a-animation repeat="indefinite" attribute="rotation" from="270 0 0" to="270 359 0" dur="20000">
+          </a-image>-->
+
+
+           </a-camera>
+
+            <a-entity geometry="primitive: plane; height: 100; width: 100"
+                material="repeat: 10 10; src: #zigzag; width: 100"
+                rotation="-90 0 0" position="0 -2.5 -6"></a-entity>
+    </a-scene>
+
+
+
+  <script type="text/javascript">
+
+  function tweetTweet() { //tweet over here
+    //basic javascript
+    // just try to tweet the website address for now in a newly created handle
+  }
+  </script>
+  </body>
+</html>
