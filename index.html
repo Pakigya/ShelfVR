@@ -1,15 +1,12 @@
 <html>
   <head>
     <title>mHacks VR</title>
-    <!-- <script src="require.js"></script> -->
     <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
     <script src="js/nunjucks-v2.3.0.min.js"></script>
     <script src="js/nunjucks.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>  
     <script src="node_modules/aframe-draw-component/dist/aframe-draw-component.min.js"></script>   
     <script src="node_modules/aframe-htmltexture-component/dist/aframe-htmltexture-component.js"></script>
-
-    <!-- <script type="text/javascript" src="node_modules/aframe-draw-component/index.js"></script> -->
     <style type="text/css">
       .para{
         text-align: center;font-size: 20px;margin-top: 6px;color: black;background-color: white;
@@ -26,6 +23,7 @@
        <img id="zigzag" src="img/wooden.jpg">
        <img id="tweet" src="img/tweet.png">
        <img id="woodrack" src="img/woodrack.jpg">
+       <img id="share" src="FB.png">
        <div id="cat1">
         <p class="para">Fantasy</p>
        </div>
@@ -102,7 +100,7 @@
           <!-- Third Row Aisle -->
            <a-entity position="-20 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
           <a-entity position="-10 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
-          <a-entity position="0 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="0 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity><a-image src="#share" position="0 7.5 -25" width="2" height="1"></a-image>
           <a-entity position="10 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
           <a-entity position="20 5 -25" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
           
