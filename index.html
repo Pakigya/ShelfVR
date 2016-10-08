@@ -1,24 +1,41 @@
 <html>
   <head>
     <title>mHacks VR</title>
-    <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script>
-    <script src="nunjucks.js"></script>
+    <!-- <script src="https://aframe.io/releases/0.3.0/aframe.min.js"></script> -->
+    <script src="../build.js"></script>
     <script src="js/nunjucks-v2.3.0.min.js"></script>
     <script src="js/nunjucks.js"></script>
     <script src="https://rawgit.com/ngokevin/aframe-text-component/master/dist/aframe-text-component.min.js"></script>
-    <script src="myfont.typeface.js"></script>
-
-
+    <!-- <script src="myfont.typeface.js"></script> -->
+    <style type="text/css">
+      .para{
+        text-align: center;font-size: 20px;margin-top: 6px;
+      }
+    </style>>
   </head>
   <body>
 
    <a-scene fog = "type: exponential; color : #fff">
-
    <a-assets>    
        <img id="marble" src="img/marble.jpg">
        <img id="zigzag" src="img/wooden.jpg">
        <img id="tweet" src="img/tweet.png">
        <img id="woodrack" src="img/woodrack.jpg">
+       <div id="cat1">
+        <p class="para">Fantasy</p>
+       </div>
+       <div id="cat2">
+        <p class="para">Comic</p>
+       </div>
+       <div id="cat3">
+        <p class="para">Sci-fi</p>
+       </div>
+       <div id="cat4">
+        <p class="para">YA</p>
+       </div>
+       <div id="cat5">
+        <p class="para">Textbook</p>
+       </div>
 
      <script id="rack" type="text/html-template">
                 <a-box position="0 0 -10" width="10" height="5" depth=".5" 
@@ -38,9 +55,6 @@
             {% endfor %}
           {% endfor %}
       </script>
-
-
-
            <script id= "display" type="text/nunjucks-template">
           {% for x in range(5) %}
             {% for z in range(10) %}
@@ -56,10 +70,9 @@
 					</a-sky>
           <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="tweetTweet()">
                      <a-animation repeat="indefinite" attribute="rotation" from="270 0 0" to="270 359 0" dur="20000">
-                          
                     </a-animation>
           </a-image>
-					
+
           <!--<a-box position="0 15 -30" width="10" height="15" depth=".5" color="#999" 
                                   material="repeat: 10 10; src: #woodrack"></a-box>
         <!--<a-box position="0 14 -30" width="45" height="22" depth=".5" color="#fff">
@@ -67,57 +80,26 @@
 -->
   <!--<a-video src="#nyc" width="45" height="22" depth=".5" position="0 14 -29" autoplay webkit-playsinline></a-video>-->
 
-
           <!-- First Row Aisle -->
-          <a-box position="0 5 5" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="10 5 5" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="20 5 5" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="-10 5 5" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="-20 5 5" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
+          <a-entity position="-20 5 5" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 5" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 5" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 5" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 5" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
 
           <!-- Second Row Aisle -->
-          <a-box position="0 5 -10" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="10 5 -10" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="20 5 -10" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="-10 5 -10" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="-20 5 -10" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
+           <a-entity position="-20 5 -10" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 -10" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 -10" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 -10" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 -10" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
 
           <!-- Third Row Aisle -->
-          <a-box position="0 5 -25" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="10 5 -25" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="20 5 -25" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="-10 5 -25" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
-          <a-box position="-20 5 -25" width="4" height="1" depth=".1" 
-                                  material="repeat: 10 10; src: #marble"
-                                  rotation = "0 0 0"></a-box>
+           <a-entity position="-20 5 -25" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
+          <a-entity position="-10 5 -25" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
+          <a-entity position="0 5 -25" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat3"></a-entity>
+          <a-entity position="10 5 -25" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat4"></a-entity>
+          <a-entity position="20 5 -25" scale="2 0.5 2" geometry="primitive: plane" position="0 0 0" draw="width: 128; height: 32;" htmltexture="asset: #cat5"></a-entity>
           
           <!-- First Row -->
           <a-box position="5 0 5" width="10" height="5" depth=".5" 
@@ -182,10 +164,6 @@
 
 
           <a-entity template="src: #display" position="1 0 -13"></a-entity>
-
-					
-
-
           <a-camera position="0 2 -20" wasd-controls= "acceleration: 200 ; enabled: true">                 
 					        <a-entity cursor="fuse: true; maxDistance: 30; timeout: 500"
 					            scale = "0.01 0.01 0.01"
