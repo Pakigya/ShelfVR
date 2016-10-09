@@ -109,11 +109,11 @@
                      <a-animation repeat="indefinite" attribute="rotation" from="270 0 0" to="270 359 0" dur="20000">
                     </a-animation>
           </a-image>
-          <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="screenshot();">
+          <!-- <a-image src = "img/tweet.png" position= "0 -2.4 0" scale= "0.3 0.3 0.3" rotation = "270 0 0" width = 9em height = 5em onclick="screenshot();">
                      <a-animation repeat="indefinite" attribute="rotation" from="270 0 0" to="270 359 0" dur="20000">
                     </a-animation>
           </a-image>
-
+ -->
         <!-- First Row Aisle -->
           <a-entity position="-20 5 5" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat1"></a-entity>
           <a-entity position="-10 5 5" scale="2 0.5 2" geometry="primitive: plane" draw="width: 128; height: 32;" htmltexture="asset: #cat2"></a-entity>
@@ -165,10 +165,11 @@
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 90 0">
 
-                                  <!-- Rack's Wooden Row -->
+                                  <!-- Rack's Wooden Row Left-->
                                     <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
-                                  rotation = "0 0 0"></a-box>            
+                                  rotation = "0 0 0">
+                                  </a-box>            
                                     <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
@@ -176,39 +177,71 @@
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
 
-                                  <!-- Book Row Number 1 -->
+                                  <!-- Book Row Number 1 Left -->
                                     <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp1"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp31"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp4"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
-                                  <!-- Book Row Number 2 -->
+                                  <!-- Book Row Number 2 Left-->
                                     <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp5"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">             
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp6"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp61"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp7"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp71"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
+
+
 
                                   <!-- Rack's Wooden Row Right-->
                                     <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
@@ -224,46 +257,76 @@
                                   <!-- Book Row Number 1 Right -->
                                     <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr0"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr01"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr02"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr11"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr12"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
                                   <!-- Book Row Number 2 Right-->
                                     <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr13"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr21"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr31"
-                                  rotation = "0 0 0"></a-box> 
-
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
                                   </a-box>
           <a-box position="15 0 5" width="10" height="5" depth=".5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 90 0">
                                   
-                                  <!-- Rack's Wooden Row -->
+                                 <!-- Rack's Wooden Row Left-->
                                     <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
-                                  rotation = "0 0 0"></a-box>            
+                                  rotation = "0 0 0">
+                                  </a-box>            
                                     <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
@@ -271,40 +334,71 @@
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
 
-                                  <!-- Book Row Number 1 -->
+                                  <!-- Book Row Number 1 Left -->
                                     <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp1"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp31"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp4"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
-                                  <!-- Book Row Number 2 -->
+                                  <!-- Book Row Number 2 Left-->
                                     <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp5"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">             
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp6"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp61"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp7"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp71"
-                                  rotation = "0 0 0"></a-box>  
-                                    
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
+
+
 
                                   <!-- Rack's Wooden Row Right-->
                                     <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
@@ -320,46 +414,77 @@
                                   <!-- Book Row Number 1 Right -->
                                     <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr0"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr01"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr02"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr11"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr12"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
                                   <!-- Book Row Number 2 Right-->
                                     <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr13"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr21"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr31"
-                                  rotation = "0 0 0"></a-box> 
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
 
                                   </a-box>
           <a-box position="25 0 5" width="10" height="5" depth=".5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 90 0">
                                   
-                                  <!-- Rack's Wooden Row -->
+                                 <!-- Rack's Wooden Row Left-->
                                     <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
-                                  rotation = "0 0 0"></a-box>            
+                                  rotation = "0 0 0">
+                                  </a-box>            
                                     <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
@@ -367,39 +492,71 @@
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
 
-                                  <!-- Book Row Number 1 -->
+                                  <!-- Book Row Number 1 Left -->
                                     <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp1"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp31"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp4"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
-                                  <!-- Book Row Number 2 -->
+                                  <!-- Book Row Number 2 Left-->
                                     <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp5"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">             
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp6"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp61"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp7"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp71"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
+
+
 
                                   <!-- Rack's Wooden Row Right-->
                                     <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
@@ -415,36 +572,66 @@
                                   <!-- Book Row Number 1 Right -->
                                     <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr0"
-                                  rotation = "0 0 0"><a-image src="#share" position="0 1.5 0" scale="1 0.8 1" opacity="0"><a-animation repeat="1" attribute="opacity" from="0" to = "1" dur="1000"></a-animation></a-image></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr01"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr02"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr11"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr12"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
                                   <!-- Book Row Number 2 Right-->
                                     <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr13"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr21"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr31"
-                                  rotation = "0 0 0"></a-box>  
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
 
 
                                   </a-box>
@@ -453,10 +640,11 @@
                                   rotation = "0 90 0">
                                     
                                   
-                                  <!-- Rack's Wooden Row -->
+                                  <!-- Rack's Wooden Row Left-->
                                     <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
-                                  rotation = "0 0 0"></a-box>            
+                                  rotation = "0 0 0">
+                                  </a-box>            
                                     <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
@@ -464,39 +652,70 @@
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
 
-                                  <!-- Book Row Number 1 -->
+                                  <!-- Book Row Number 1 Left -->
                                     <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp1"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp31"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp4"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
-                                  <!-- Book Row Number 2 -->
+                                  <!-- Book Row Number 2 Left-->
                                     <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp5"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">             
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp6"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp61"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp7"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp71"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
+
 
 
                                   <!-- Rack's Wooden Row Right-->
@@ -513,36 +732,66 @@
                                   <!-- Book Row Number 1 Right -->
                                     <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr0"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr01"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr02"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr11"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr12"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
                                   <!-- Book Row Number 2 Right-->
                                     <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr13"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr21"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr31"
-                                  rotation = "0 0 0"></a-box>  
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
 
                                   </a-box>
           <a-box position="-15 0 5" width="10" height="5" depth=".5" 
@@ -550,10 +799,11 @@
                                   rotation = "0 90 0">
                                     
                                   
-                                  <!-- Rack's Wooden Row -->
+                                 <!-- Rack's Wooden Row Left-->
                                     <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
-                                  rotation = "0 0 0"></a-box>            
+                                  rotation = "0 0 0">
+                                  </a-box>            
                                     <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
@@ -561,39 +811,71 @@
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
 
-                                  <!-- Book Row Number 1 -->
+                                  <!-- Book Row Number 1 Left -->
                                     <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp1"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp31"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp4"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
-                                  <!-- Book Row Number 2 -->
+                                  <!-- Book Row Number 2 Left-->
                                     <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp5"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">             
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp6"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp61"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp7"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp71"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
+
+
 
                                   <!-- Rack's Wooden Row Right-->
                                     <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
@@ -609,47 +891,77 @@
                                   <!-- Book Row Number 1 Right -->
                                     <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr0"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr01"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr02"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr11"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr12"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
                                   <!-- Book Row Number 2 Right-->
                                     <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr13"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr21"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr31"
-                                  rotation = "0 0 0"></a-box> 
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
 
                                   </a-box>
           <a-box position="-25 0 5" width="10" height="5" depth=".5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 90 0">
                                     
-                                  
-                                  <!-- Rack's Wooden Row -->
+                                 <!-- Rack's Wooden Row Left-->
                                     <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
-                                  rotation = "0 0 0"></a-box>            
+                                  rotation = "0 0 0">
+                                  </a-box>            
                                     <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
@@ -657,39 +969,71 @@
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
 
-                                  <!-- Book Row Number 1 -->
+                                  <!-- Book Row Number 1 Left -->
                                     <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp1"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp31"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp4"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
-                                  <!-- Book Row Number 2 -->
+                                  <!-- Book Row Number 2 Left-->
                                     <a-box position="4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp5"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">             
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp6"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp61"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp7"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp71"
-                                  rotation = "0 0 0"></a-box> 
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
+
+
 
                                   <!-- Rack's Wooden Row Right-->
                                     <a-box position="0 2.4 0.5" width="10" height="0.2" depth="0.5" 
@@ -705,37 +1049,66 @@
                                   <!-- Book Row Number 1 Right -->
                                     <a-box position="4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr0"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr01"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr02"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr11"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 1.2 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr12"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
 
                                   <!-- Book Row Number 2 Right-->
                                     <a-box position="4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr13"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr2"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="0 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr21"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-2 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr3"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box>
                                     <a-box position="-4 -1 0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #lotr31"
-                                  rotation = "0 0 0"></a-box> 
-
+                                  rotation = "0 0 0">
+                                           <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+                                            </a-animation>
+                                  </a-box> 
                                   </a-box>
 
         <!-- Second row -->
@@ -2737,7 +3110,7 @@
 
   FB.ui({
   method: 'send',
-  link: 'http://pakigya.github.io',
+  link: 'http://pakigya.github.io/shelfVR',
 });
   
   // Now that we've initialized the JavaScript SDK, we call 
