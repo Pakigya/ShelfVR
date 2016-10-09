@@ -28,30 +28,30 @@
 
       <!-- Books -->
       <!-- Harry Potter -->
-       <img id="hp1" src="img/hp/hp1.jpg">
-       <img id="hp2" src="img/hp/hp2.jpg">
-       <img id="hp21" src="img/hp/hp21.jpg">
-       <img id="hp3" src="img/hp/hp3.jpg">
-       <img id="hp31" src="img/hp/hp31.jpg">
-       <img id="hp32" src="img/hp/hp32.jpg">
-       <img id="hp4" src="img/hp/hp4.jpg">
-       <img id="hp5" src="img/hp/hp5.jpg">
-       <img id="hp6" src="img/hp/hp6.jpg">
-       <img id="hp61" src="img/hp/hp61.jpg">
-       <img id="hp7" src="img/hp/hp7.jpg">
-       <img id="hp71" src="img/hp/hp71.jpg">
+       <img id="hp1" src="img/hp/hp1.jpg" attribute="Harry Potter and the Sorceror's Stone">
+       <img id="hp2" src="img/hp/hp2.jpg" attribute="Harry Potter and the Chambers of Secret">
+       <img id="hp21" src="img/hp/hp21.jpg" attribute="Harry Potter and the Chambers of Secret">
+       <img id="hp3" src="img/hp/hp3.jpg" attribute="Harry Potter and the Prisoner of Azkaban">
+       <img id="hp31" src="img/hp/hp31.jpg" attribute="Harry Potter and the Prisoner of Azkaban">
+       <img id="hp32" src="img/hp/hp32.jpg" attribute="Harry Potter and the Prisoner of Azkaban">
+       <img id="hp4" src="img/hp/hp4.jpg" attribute="Harry Potter and the Goblet of Fire">
+       <img id="hp5" src="img/hp/hp5.jpg" attribute="Harry Potter and the Order of the Pheonix">
+       <img id="hp6" src="img/hp/hp6.jpg" attribute="Harry Potter and the Half Blood Prince">
+       <img id="hp61" src="img/hp/hp61.jpg" attribute="Harry Potter and the Half Blood Prince">
+       <img id="hp7" src="img/hp/hp7.jpg" attribute="Harry Potter and the Deathly Hallows">
+       <img id="hp71" src="img/hp/hp71.jpg" attribute="Harry Potter and the Deathly Hallows">
 
        <!-- Lord of the rings -->
-       <img id="lotr0" src="img/lotr/lotr0.jpg">
-       <img id="lotr01" src="img/lotr/lotr01.jpg">
-       <img id="lotr02" src="img/lotr/lotr02.jpg">
-       <img id="lotr11" src="img/lotr/lotr11.jpg">
-       <img id="lotr12" src="img/lotr/lotr12.jpg">
-       <img id="lotr13" src="img/lotr/lotr13.jpg">
-       <img id="lotr2" src="img/lotr/lotr2.jpg">
-       <img id="lotr21" src="img/lotr/lotr21.jpg">
-       <img id="lotr3" src="img/lotr/lotr3.jpg">
-       <img id="lotr31" src="img/lotr/lotr31.jpg">
+       <img id="lotr0" src="img/lotr/lotr0.jpg" attribute="The Hobbit">
+       <img id="lotr01" src="img/lotr/lotr01.jpg" attribute="The Hobbit">
+       <img id="lotr02" src="img/lotr/lotr02.jpg" attribute="The Hobbit">
+       <img id="lotr11" src="img/lotr/lotr11.jpg" attribute="Lord of the Rings: The Fellowship of the Ring">
+       <img id="lotr12" src="img/lotr/lotr12.jpg" attribute="Lord of the Rings: The Fellowship of the Ring">
+       <img id="lotr13" src="img/lotr/lotr13.jpg" attribute="Lord of the Rings: The Fellowship of the Ring">
+       <img id="lotr2" src="img/lotr/lotr2.jpg" attribute="Lord of the Rings: The Two Towers">
+       <img id="lotr21" src="img/lotr/lotr21.jpg" attribute="Lord of the Rings: The Two Towers">
+       <img id="lotr3" src="img/lotr/lotr3.jpg" attribute="Lord of the Rings: The Return of the Ring">
+       <img id="lotr31" src="img/lotr/lotr31.jpg" attribute="Lord of the Rings: The Return of the Ring">
 
 
 
@@ -742,7 +742,8 @@
                                   <!-- Rack's Wooden Row Left-->
                                     <a-box position="0 2.4 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
-                                  rotation = "0 0 0"></a-box>            
+                                  rotation = "0 0 0">
+                                  </a-box>            
                                     <a-box position="0 0.1 -0.5" width="10" height="0.2" depth="0.5" 
                                   material="repeat: 10 10; src: #woodrack"
                                   rotation = "0 0 0"></a-box>
@@ -753,7 +754,11 @@
                                   <!-- Book Row Number 1 Left -->
                                     <a-box position="4 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp1"
-                                  rotation = "0 0 0"></a-box>
+                                  rotation = "0 0 0">
+                                    
+                                       <a-animation begin="click" attribute = "rotation" from = "0 0 0" to = "0 360 0">
+             </a-animation>
+                                  </a-box>
                                     <a-box position="2 1.2 -0.5" width="1" height="1.6" depth=".1" 
                                   material="src: #hp2"
                                   rotation = "0 0 0"></a-box>
